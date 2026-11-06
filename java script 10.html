@@ -1,0 +1,54 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+<button onclick="getType()">Get type</button> <br>
+<div id="type"></div>
+<div id="type1"></div>
+
+<input id="numIN" placeholder="type anything">
+<button onclick="toStr()">convert</button>
+<button onclick="toNum()">convert1</button>
+<div id="display"></div>
+
+<button onclick="search()">search</button>
+<div id="searchRes"></div>
+<div id="errResult"></div>
+<button onclick="trySafe()">enter</button>
+<input id="divIN" placeholder="type a number!">
+        <script>
+
+function getType(){
+    var score = 100;
+    document.getElementById("type").innerText = 
+    "type of 42: " + typeof 42 + "\n" +
+     "type of atharva: " + typeof 'atharva' + "\n" +
+      "type of Gameisreal: " + typeof false + "\n" +
+       "type of score: " + typeof score + "\n"
+}
+
+function toStr(){
+    var v = document.getElementById("numIN").value
+    document.getElementById("display").innerHTML= String(v) + " now it is a " + typeof String(v)
+}
+function toNum(){
+    var v = document.getElementById("numIN").value
+    document.getElementById("display").innerHTML= Number(v) + " now it is a " + typeof Number(v)
+}
+function search(){
+    var sentence = "The atharva flew over the big city.";
+    document.getElementById("searchRes").innerHTML = "word found at position" + sentence.search("atharva") + "\n" 
+    + "not found returns" + sentence.search("apple") + "\n" + sentence + sentence.replace ("atharva", "apple")
+}
+function trySafe (){
+    try{
+        var n = document.getElementById("divIN").value;
+        if (n === "" || isNaN(n)) {throw "not a number";}
+        document.getElementById("errResult").innerHTML = 100 / Number(n) ;
+    } catch(err) { document.getElementById("errResult").innerHTML = err; }
+
+}
+        </script>
+    </body>
+</html>
